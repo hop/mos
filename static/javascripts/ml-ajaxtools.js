@@ -91,11 +91,6 @@ function set_invisible(obj){
 }
 
 
-function do_on_load()
-{
-    update_metasense();
-}
-
 function enter_pressed(e){
     var keycode;
     if (window.event) keycode = window.event.keyCode; 
@@ -103,8 +98,6 @@ function enter_pressed(e){
     else return false; 
     return (keycode == 13); 
 }
-
-addEvent(window, 'load', do_on_load);
 
 
 function submit_event(id) {
@@ -124,25 +117,3 @@ function submit_event(id) {
                                                   })
 }
 
-
-function update_metasense() {
-    /*new Ajax.Request('http://metalab.at/metasense/status.html', {asynchronous:true, onFailure:function(){}, onException:function(){}, onSuccess:function(transport){ */
-    new Ajax.Request('/metasense/status.html', {asynchronous:true, onFailure:function(){}, onException:function(){}, onSuccess:function(transport){ 
-        oopen = $('presence_open');
-        oclosed = $('presence_closed');
-        odefunct = $('presence_defunct');
-        if(transport.responseText.match("ffnet")) {
-            set_visible(oopen);
-            set_invisible(oclosed);
-            set_invisible(odefunct);
-          } else if( transport.responseText.match("niemand")){
-            set_visible(oclosed);
-            set_invisible(oopen);            
-            set_invisible(odefunct);
-        } else {
-            set_invisible(oopen);
-            set_invisible(oclosed);
-            set_visible(odefunct);
-        }
-    }});
-}
