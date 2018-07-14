@@ -32,17 +32,6 @@
     {% block add_js %}
     {% endblock %}
 
-<script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */
-</script>
 </head>
 <body>
 <div id="container">
@@ -61,26 +50,6 @@
             <li><a href="/wiki/English" title="English version"><img src="{{ STATIC_URL }}images/Flag_UK.png" style="vertical-align: top;"/> English</a></li>
         </ul>
 
-        <div id="presence_closed" class="invisible">
-            <a href="/wiki/Metasense">
-            <img src="{{ STATIC_URL }}images/metasense_off.gif" class="metasense_image" width="16" height="15" alt="derzeit ist niemand im metalab!" />
-             geschlossen
-            </a>
-
-        </div>
-        <div id="presence_open" class="invisible">
-            <a href="/wiki/Metasense">
-            <img src="{{ STATIC_URL }}images/metasense_on.gif" class="metasense_image"  width="16" height="15" alt="metalab ist geöffnet!" />
-             offen
-            </a>
-        </div>
-        <div id="presence_defunct" class="invisible">
-            <a href="/wiki/Metasense">
-            <!-- <img src="{{ STATIC_URL }}images/metasense_on.gif" class="metasense_image"  width="16" height="15" alt="metalab ist geöffnet!" /> -->
-             Sensor down
-            </a>
-        </div>
-
         <div id="login">
             {% if not user.is_authenticated %}
                 <a href="{% url 'login' %}">Login</a>
@@ -98,10 +67,7 @@
 
     <div id="footer">
         powered by <a href="https://github.com/Metalab/mos/">Metalab OS</a> |
-<div class="flattrbtn"><a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="https://metalab.at/"></a>
-<noscript><a href="https://flattr.com/thing/452632/Metalab" target="_blank">
-<img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-</div>
+        <a href="/wiki/Datenschutzerklärung" title="Datenschutzerklärung">Datenschutzerklärung</a>
     </div>
 </div>
 </div>
